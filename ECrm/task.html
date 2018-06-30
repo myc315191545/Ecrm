@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ECrm</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="plugins/layui/css/layui.css" media="all">
+    <style>
+        body {
+            margin: 10px;
+        }
+
+        .demo-carousel {
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="assets/vendor/linearicons/style.css"/>
+    <link rel="stylesheet" href="assets/vendor/bootstrap-table/bootstrap-table.css"/>
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/main.css"/>
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <link rel="stylesheet" href="css/demo.css"/>
+    <!-- GOOGLE FONTS -->
+    <link href="css/font.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/entry.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/index.bundle.css"/>
+
+    <link rel="stylesheet" href="css/marketing.css"/>
+    <!-- ICONS -->
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png"/>
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png"/>
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
+</head>
+<body>
+<!-- WRAPPER -->
+<!-- MAIN -->
+<div class="main">
+    <div class="main-content  ">
+
+        <div class="nav row">
+
+            <section id="devote" style="padding-top: 10px">
+                <div class="figure-table">
+                    <div class="figure-table-head">
+                        <div class="figure-table-title">
+                            我的指标
+                        </div>
+                        <div class="figure-table-options">
+                            统计周期
+                        </div>
+                    </div>
+                    <div class="figure-table-body">
+                        <div class="figure-table-item">
+                            <div class="figure-table-item-title">
+                                总会员数目标
+                            </div>
+                            <div class="figure-table-item-value">
+                                <b><span> <b><span id="totalTask"></span></b>&nbsp;<span class="figure-unit">人</span></span> </b>
+                            </div>
+
+                        </div>
+                        <div class="figure-table-item">
+                            <div class="figure-table-item-title">
+                                已成功开卡数
+                            </div>
+                            <div class="figure-table-item-value">
+                                <b><b><span id="succeedNum"></span></b></b>人
+                            </div>
+
+                        </div>
+                        <div class="figure-table-item">
+                            <div class="figure-table-item-title">
+                                剩余指标数
+                            </div>
+                            <div class="figure-table-item-value">
+                                <b><span><b><span id="remainNum"></span></b> &nbsp; <span class="figure-unit">人</span></span> </b>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </section>
+            <section>
+                <table class="layui-show" id="menbertable" lay-filter="menbertable"></table>
+
+                <script type="text/html" id="barMenbertable">
+                    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+                    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+                    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+                </script>
+
+                <!--<div class="layui-tab layui-tab-brief" lay-filter="menbertable">-->
+                    <!--<div class="layui-tab-content">-->
+                        <!--<div class="layui-tab-item">-->
+                            <!--<div id="pageMenbertable"></div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            </section>
+        </div>
+        <!-- END MAIN CONTENT -->
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="plugins/layui/layui.all.js"></script>
+<script>
+
+
+    layui.use(['table', 'laypage'], function () {
+        var laypage = layui.laypage //分页
+            , layer = layui.layer //弹层
+            , table = layui.table //表格
+            , element = layui.element; //元素操作
+
+
+        //执行一个 table 实例
+        table.render({
+            elem: '#menbertable'
+            , height: 400
+            , url: 'build/js/tabledata.json'//数据接口
+            , page: true //开启分页
+            ,size:"sm"
+            , cols: [[ //表头
+
+
+                {field: 'phone', title: '手机号', width: "15%"}
+                , {field: 'username', title: '会员姓名', width: "15%"}
+                , {field: 'sex', title: '会员级别', width: "10%"}
+                , {field: 'city', title: '交易总额', width: "15%"}
+                , {field: 'sign', title: '交易笔数', width: "15%"}
+                , {field: 'experience', title: '平均交易金额', width: "15%", sort: true}
+                , {field: 'score', title: '上次交易时间', width: "15%", sort: true}
+                , {fixed: 'right', width: "20%",title:'操作',align: 'center', toolbar: '#barMenbertable'}
+            ]]
+        });
+
+        //监听工具条
+        table.on('tool(menbertable)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+            var data = obj.data //获得当前行数据
+                , layEvent = obj.event; //获得 lay-event 对应的值
+            if (layEvent === 'detail') {
+                layer.msg('查看操作');
+            } else if (layEvent === 'del') {
+                layer.confirm('真的删除行么', function (index) {
+                    obj.del(); //删除对应行（tr）的DOM结构
+                    layer.close(index);
+                    //向服务端发送删除指令
+                });
+            } else if (layEvent === 'edit') {
+                layer.msg('编辑操作');
+            }
+        });
+
+        //分页
+        // laypage.render({
+        //     elem: 'pageMenbertable' //分页容器的id
+        //     , count: 100 //总页数
+        //     , skin: '#1E9FFF' //自定义选中色值
+        //     //,skip: true //开启跳页
+        //     , jump: function (obj, first) {
+        //         if (!first) {
+        //             layer.msg('第' + obj.curr + '页');
+        //         }
+        //     }
+        // });
+
+
+    });
+
+    $(function () {
+        $("#totalTask").html("123");
+        $("#succeedNum").html("123");
+        $("#remainNum").html("123");
+    })
+</script>
+
+
+</body>
+</html>
+
+
+
+
+

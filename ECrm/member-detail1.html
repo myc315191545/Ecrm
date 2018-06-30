@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>ECrm</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/vendor/linearicons/style.css">
+    <link rel="stylesheet" href="assets/vendor/chartist/css/chartist-custom.css">
+    <link rel="stylesheet" href="assets/vendor/bootstrap-table/bootstrap-table.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+
+    <link rel="stylesheet" href="css/demo.css">
+    <!-- GOOGLE FONTS -->
+    <link href="css/font.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/entry.css">
+    <link rel="stylesheet" href="css/base.css">
+
+    <link rel="stylesheet" href="css/marketing.css"/>
+    <link rel="stylesheet" href="plugins/layui/css/layui.css" media="all">
+
+    <!-- ICONS -->
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+    <style type="text/css">
+        .content {
+            min-width: 100px;
+            width: auto;
+            font-size: 10px;
+        }
+
+        .content-title {
+            min-width: 100px;
+            width: auto;
+            font-size: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<!-- MAIN -->
+
+<div class="main">
+    <div class="main-content  ">
+        <!-- MAIN CONTENT -->
+        <div class="row" style="padding-top: 10px">
+
+
+            <table class="table table-bordered">
+                <tr>
+                    <td class="content-title">真实姓名
+                    </td>
+                    <td class="content" id="memberName"></td>
+                    <td class="content-title">性别
+                    </td>
+                    <td class="content" id="sex"></td>
+                    <td class="content-title">手机
+                    </td>
+                    <td class="content" id="phone"></td>
+                </tr>
+                <tr>
+                    <td class="content-title">邮箱
+                    </td>
+                    <td class="content" id="email"></td>
+                    <td class="content-title">生日
+                    </td>
+                    <td class="content" id="birthday"></td>
+                    <td class="content-title">省份城市
+                    </td>
+                    <td class="content" id="city"></td>
+                </tr>
+                <tr>
+                    <td class="content-title">微信号
+                    </td>
+                    <td class="content" id="webchatId"></td>
+                    <td class="content-title">淘宝ID
+                    </td>
+                    <td class="content" id="taobaoId"></td>
+                    <td class="content-title">京东ID
+                    </td>
+                    <td class="content" id="jdId"></td>
+                </tr>
+            </table>
+            <table class="table table-bordered">
+                <tr>
+                    <td class="content-title">分组</td>
+                    <td class="content" id="groupName"></td>
+                    <td class="content-title">粉丝状态
+                    </td>
+                    <td class="content" id="fanStatus"></td>
+                    <td class="content-title">收货地址
+                    </td>
+                    <td class="content" id="address"></td>
+                </tr>
+            </table>
+            <table class="table table-bordered">
+                <tr>
+                    <td class="content-title">会员等级
+                    </td>
+                    <td class="content" id="level"></td>
+                    <td class="content-title">交易次数
+                    </td>
+                    <td class="content" id="billNum"></td>
+                    <td class="content-title">交易额
+                    </td>
+                    <td class="content" id="totalConsumption"></td>
+                </tr>
+                <tr>
+                    <td class="content-title">首次交易时间
+                    </td>
+                    <td class="content" id="firstTime"></td>
+                    <td class="content-title">消费类目占比
+                    </td>
+                    <td class="content-title" id="customerPercent"></td>
+                    <td class="content-title">平均订单金额
+                    </td>
+                    <td class="content" id="avgCharge"></td>
+                </tr>
+                <tr>
+                    <td class="content-title">上次交易时间
+                    </td>
+                    <td class="content" id="lastTime"></td>
+                    <td class="content-title">现有积分
+                    </td>
+                    <td class="content" id=""></td>
+                    <td class="content-title">客户来源
+                    </td>
+                    <td class="content"></td>
+                </tr>
+            </table>
+
+            <div class="content-head">
+                <div class="benefit-container">
+                    <div class="btn">
+                        增加
+                    </div>
+
+                    <div class="btn">
+                        删除
+                    </div>
+                </div>
+            </div>
+            <table id="remarkTable">
+
+            </table>
+            <div class="layui-tab layui-tab-brief" lay-filter="remark">
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item">
+                        <div id="pageRemarkTable"></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- END MAIN CONTENT -->
+
+        <div class="clearfix"></div>
+    </div>
+
+</div>
+<!-- END MAIN -->
+
+<!-- END WRAPPER -->
+<!-- Javascript -->
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+<script src="assets/vendor/chartist/js/chartist.min.js"></script>
+<script src="assets/scripts/klorofil-common.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap-paginator.js"></script>
+<script src="assets/vendor/bootstrap-table/bootstrap-table.js"></script>
+<script src="assets/vendor/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+
+
+<script src="plugins/layui/layui.all.js"></script>
+
+<script>
+    layui.use(['table', 'laypage'], function () {
+        var laypage = layui.laypage //分页
+            , table = layui.table; //表格
+
+
+        //执行一个 table 实例
+        table.render({
+            elem: '#remarkTable'
+            , height: 400
+            , style: 'font-size:12px'
+            , size: "sm"
+            , url: 'build/js/tabledata.json'//数据接口
+            , page: true //开启分页
+            , cols: [[ //表头
+
+                {field: 'index', title: '序号', width: '10%'}
+                , {field: 'content', title: '内容', width: '49%'}
+                , {field: 'recorddate', title: '日期', width: '20%'}
+                , {field: 'operator', title: '操作人'}
+            ]]
+        });
+
+        //分页
+        laypage.render({
+            elem: '#pageRemarkTable' //分页容器的id
+            , count: 100 //总页数
+            , skin: '#1E9FFF' //自定义选中色值
+            //,skip: true //开启跳页
+            , jump: function (obj, first) {
+                if (!first) {
+                    layer.msg('第' + obj.curr + '页');
+                }
+            }
+        });
+
+
+
+
+    });
+
+
+
+
+    $(function () {
+        var Request = new Object();
+        Request = GetRequest();
+        var membershipId = Request["membershipId"]; //获取loginName值
+        //获取url中的参数
+        function GetRequest() {
+            var url = location.search; //获取url中"?"符后的字串
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+
+        $.getJSON("http://xiuniang.yaxin-nanjing.com/xiuniang/v/findMemberById/"+membershipId+"?jsoncallback=?",
+            function (data) {
+                alert(data);
+            }
+        );
+
+        // var tmpData="{\"id\":38,\"openid\":\"oGIF7t2_GNG60iPCthXdWcYqLQh0\",\"dianyuanId\":1,\"cardId\":\"pGIF7t597yTxck6eYAyHB7XvMtlU\",\"code\":\"440078155801\",\"name\":\"徐挺\",\"sex\":1,\"phone\":\"13812655151\",\"birthday\":\"1988-02-02\",\"idcard\":null,\"email\":null,\"location\":null,\"postcode\":null,\"educationBackgro\":null,\"industry\":null,\"income\":null,\"habit\":null,\"bonus\":0,\"balance\":0,\"level\":0,\"userCardStatus\":null,\"hasActive\":true,\"totalConsumption\":0,\"recentConsumption\":0,\"totalNum\":0,\"createdAt\":\"2017-09-02T05:25:36.000+0000\"}";
+        // var jsonObj = JSON.parse(tmpData);
+        //
+        // var url='http://xiuniang.yaxin-nanjing.com/xiuniang/v/findMemberById/'+membershipId;
+        // $.ajax({
+        //     url:url,
+        //     processData: false,
+        //     contentType: "application/json",
+        //     type:'get',
+        //     success:function(data){
+        //         var jsonObj = JSON.parse(data);
+        //         $("#memberName").html(jsonObj.name);
+        //         jsonObj.sex==1?$("#sex").html('男'):$("#sex").html('女');
+        //         $("#phone").html(jsonObj.phone);
+        //         $("#birthday").html(jsonObj.birthday);
+        //         $("#level").html(jsonObj.level);
+        //         $("#totalConsumption").html(jsonObj.totalConsumption);
+        //     },
+        //     error:function(XMLHttpRequest, textStatus, errorThrown) {
+        //
+        //         console.log(XMLHttpRequest.status);
+        //         console.log(XMLHttpRequest.readyState);
+        //         console.log(textStatus);
+        //     }});
+
+
+    });
+</script>
+
+</body>
+
+</html>

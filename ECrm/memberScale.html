@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ECrm</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="assets/vendor/linearicons/style.css"/>
+    <link rel="stylesheet" href="assets/vendor/bootstrap-table/bootstrap-table.css"/>
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/main.css"/>
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <link rel="stylesheet" href="css/demo.css"/>
+    <!-- GOOGLE FONTS -->
+    <link href="css/font.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/entry.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/index.bundle.css"/>
+
+    <link rel="stylesheet" href="plugins/layui/css/layui.css" media="all">
+
+
+    <link rel="stylesheet" href="css/marketing.css"/>
+    <!-- ICONS -->
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png"/>
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png"/>
+
+</head>
+<body>
+<!-- WRAPPER -->
+<!-- MAIN -->
+<div class="main">
+    <div class="main-content  ">
+
+
+        <div class="crm-loyalty-management-page">
+            <section id="count">
+                <div class="figure-table">
+                    <div class="figure-table-head">
+                        <div class="figure-table-title">
+                            核心指标
+                        </div>
+                    </div>
+                    <div class="figure-table-body">
+                        <div class="figure-table-item">
+                            <div class="figure-table-item-title">
+                                会员总数
+                            </div>
+                            <div class="figure-table-item-value">
+                                <b><span><b><span id="totalNum"></span></b>
+                                    &nbsp;
+                                    <span class="figure-unit">人</span></span></b>
+                            </div>
+                            <div class="figure-table-item-subtitle">
+                                较前日
+                                &nbsp;&nbsp;
+                                <span class="figure-table-item-subvalue up" id="beforeYesterdayTotal">
+                                    18</span>
+                            </div>
+                        </div>
+                        <div class="figure-table-item">
+                            <div class="figure-table-item-title">
+                                昨日入会人数
+                            </div>
+                            <div class="figure-table-item-value">
+                                <b><span><b><span id="yesterdayIn"></span></b>
+                                    &nbsp;<span class="figure-unit">人</span></span></b>
+                            </div>
+                            <div class="figure-table-item-subtitle">
+                                较前日
+                                &nbsp;&nbsp;
+                                <span class="figure-table-item-subvalue down" id="beforeYesterdayIn">
+                                    7</span>
+                            </div>
+                        </div>
+                        <div class="figure-table-item">
+                            <div class="figure-table-item-title">
+                                昨日退会人数
+
+                            </div>
+                            <div class="figure-table-item-value">
+                                <b><span><b><span id="yesterdayQuit"></span></b>
+                                    &nbsp;
+                                    <span class="figure-unit">人</span></span></b>
+                            </div>
+                            <div class="figure-table-item-subtitle">
+                                较前日
+
+                                &nbsp;&nbsp;
+
+                                <span class="figure-table-item-subvalue " id="beforeYesterdayQuit">
+                                    10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line-chart">
+                    <div class="chart-title padding_top">
+                        入会/退会趋势
+                    </div>
+
+
+                    <div style="position: relative; overflow: hidden;  padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
+                        <div id="canvas_8" width="1000px" height="250"
+                             style="width: auto; height: 250px;"></div>
+                        <div id="canvas_9" width="1000px" height="250"
+                             style="width: auto; height: 250px; position: absolute; top: 0px; left: 0px;"></div>
+                        <div id="canvas_10" width="1000px" height="250"
+                             style="width: auto; height: 250px; position: absolute; top: 0px; left: 0px;"></div>
+                    </div>
+
+
+                    <div class="line-legend">
+                        <div class="legend-item">
+                            <div class="legend-item-shape" data-value="memJoinCnt" data-israte="" data-i="0"
+                                 style="background: rgb(48, 137, 220);"></div>
+                            入会人数
+
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-item-shape" data-value="mbrUsrQuitCnt" data-israte="" data-i="1"
+                                 style="background: rgb(65, 194, 161);"></div>
+                            退会人数
+
+                        </div>
+                    </div>
+                    <div class="circle-chart">
+                        <div class="chart-title">
+        <span>
+             会员等级分布
+
+             &nbsp;&nbsp;</span>
+                        </div>
+                        <div class="chart-pane-body">
+                            <div>
+                                <div>
+                                    <div style="position: relative;">
+                                        <div id="canvas_1" height="260"
+                                             style="height: 260px;"></div>
+                                        <div id="canvas_2" height="260"
+                                             style=" height: 260px; position: absolute; top: 0px; left: 0px;"></div>
+                                        <div id="canvas_3" height="260"
+                                             style=" height: 260px; position: absolute; top: 0px; left: 0px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+    <div class="clearfix"></div>
+</div>
+</div>
+<!-- END MAIN -->
+<!-- END WRAPPER -->
+<!-- Javascript -->
+
+<script src="./plugins/jquery/jquery.min.js"></script>
+
+<script src="./plugins/echarts/echarts.min.js"></script>
+<script src="./plugins/echarts//macarons.js"></script>
+
+
+<script src="./plugins/layui/layui.all.js"></script>
+
+<script type="text/javascript">
+    var dom = document.getElementById("canvas_1");
+    var myChart = echarts.init(dom, 'macarons');
+
+    var dom2 = document.getElementById("canvas_8");
+    var myChart2 = echarts.init(dom2, 'macarons');
+
+    var app = {};
+    option = null;
+
+    option = {
+        xAxis: {
+            type: 'category',
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            data: [820, 932, 901, 934, 1290, 1330, 1320],
+            type: 'line',
+            smooth: true
+        }]
+    };
+
+
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+
+        myChart2.setOption(option, true);
+    }
+
+    $(function() {
+        $('#totalNum').html("234");
+        $('#beforeYesterdayTotal').html("234");
+        $('#yesterdayIn').html("234");
+        $('#beforeYesterdayIn').html("234");
+        $('#yesterdayQuit').html("234");
+        $('#beforeYesterdayQuit').html("234");
+        }
+    );
+</script>
+</body>
+</html>

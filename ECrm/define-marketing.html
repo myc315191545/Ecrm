@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ECrm</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="assets/vendor/linearicons/style.css"/>
+    <link rel="stylesheet" href="assets/vendor/chartist/css/chartist-custom.css"/>
+    <link rel="stylesheet" href="assets/vendor/bootstrap-table/bootstrap-table.css"/>
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/main.css"/>
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <link rel="stylesheet" href="css/demo.css"/>
+    <!-- GOOGLE FONTS -->
+    <link href="css/font.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/entry.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/marketing.css"/>
+    <link rel="stylesheet" href="plugins/layui/css/layui.css" media="all">
+
+
+    <!-- ICONS -->
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png"/>
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png"/>
+</head>
+<body>
+<!-- WRAPPER -->
+<!-- MAIN -->
+<div class="main">
+    <div class="main-content  ">
+        <!-- MAIN CONTENT -->
+        <div class="intelligent-marketing-page">
+
+            <div class="no-tab">
+                <section class="marketing-section">
+                    <div class="cell-pan">
+                        <!-- react-text: 9 -->
+                        <!-- /react-text -->
+                        <div class="entry-cell">
+                            <img class="icon-img"
+                                 src="//img.alicdn.com/tfs/TB1zFkQXgMPMeJjy1XbXXcwxVXa-36-40.png"/>
+                            <div class="entry-title">
+                                <h3>短信推送策略</h3>
+                            </div>
+                            <div class="entry-info" style="color: rgb(153, 153, 153);">
+
+                            </div>
+                            <a href="#"
+                               class="next-btn next-btn-primary next-btn-medium">
+                                <!-- react-text: 16 -->立即创建
+                                <!-- /react-text --></a>
+                        </div>
+                    </div>
+                    <div class="cell-pan">
+                        <!-- react-text: 18 -->
+                        <!-- /react-text -->
+                        <div class="entry-cell">
+                            <img class="icon-img"
+                                 src="//img.alicdn.com/tfs/TB1EmN7SpXXXXbgaXXXXXXXXXXX-36-40.png"/>
+                            <div class="entry-title">
+                                <h3>导购跟进策略</h3>
+                            </div>
+                            <div class="entry-info" style="color: rgb(153, 153, 153);">
+                                <div>
+
+
+                                </div>
+                            </div>
+                            <a href="#"
+                               class="next-btn next-btn-primary next-btn-medium">
+                                <!-- react-text: 28 -->立即创建
+                                <!-- /react-text --></a>
+                        </div>
+                    </div>
+
+
+                </section>
+            </div>
+            <section class="tab-table-list-section-title">
+                <div class="blue-crm-title">
+                    <span class="crm-title">运营计划列表</span>
+                    <span class="crm-subtitle"></span>
+                </div>
+            </section>
+            <div class="market-tab">
+
+
+                <div class="layui-tab" lay-filter="tabFilter">
+                    <ul class="layui-tab-title">
+                        <li class="layui-this" lay-id="1">短信推送</li>
+                        <li lay-id="2">导购跟进</li>
+
+                    </ul>
+                    <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+                            <table id="produce2CodeTable" class="layui-show" lay-filter="produce2CodeTable"></table>
+
+                            <script type="text/html" id="barProduce2CodeTable">
+                                <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">详情</a>
+                            </script>
+                            <div id="pageProduce2CodeTable">
+
+                            </div>
+                        </div>
+                        <div class="layui-tab-item">
+                            <table id="relationBindTable" lay-filter="relationBindTable"></table>
+                            <script type="text/html" id="barRelationBindTable">
+                                <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">详情</a>
+                                <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="rowdata">数据</a>
+                            </script>
+                            <div id="pageRelationBindTable">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- END MAIN CONTENT -->
+        <div class="clearfix"></div>
+
+
+    </div>
+    <!-- END MAIN -->
+    <!-- END WRAPPER -->
+    <!-- Javascript -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+    <script src="assets/vendor/chartist/js/chartist.min.js"></script>
+    <script src="assets/scripts/klorofil-common.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap-paginator.js"></script>
+    <script src="assets/vendor/bootstrap-table/bootstrap-table.js"></script>
+    <script src="assets/vendor/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+
+    <script src="plugins/layui/layui.all.js"></script>
+
+    <script>
+
+
+        layui.use(['table', 'laypage', 'element'], function () {
+            var laypage = layui.laypage //分页
+                , layer = layui.layer //弹层
+                , table = layui.table //表格
+                , element = layui.element; //元素操作
+
+
+            //一些事件监听
+            // element.on('tab(tabFilter)', function(data){
+            //
+            // });
+
+
+            //table produce2Code
+            table.render({
+                elem: '#produce2CodeTable'
+                , height: 350
+                , url: 'build/js/tabledata.json'//数据接口
+                ,size:"sm"
+                , cols: [[ //表头
+
+
+                    {field: 'phone', title: '任务名称', width: '25%'}
+                    , {field: 'username', title: '设置时间', width: '25%'}
+                    , {field: 'sex', title: '状态', width: '25%'}
+                    , {fixed: 'right', title: '操作', width: '25%', align: 'center', toolbar: '#barProduce2CodeTable'}
+                ]]
+            });
+
+            //监听工具条
+            table.on('tool(produce2CodeTable)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+                var data = obj.data //获得当前行数据
+                    , layEvent = obj.event; //获得 lay-event 对应的值
+                if (layEvent === 'detail') {
+                    window.location.href="qrcodeStrategy.html";
+                }
+            });
+
+
+            //完整功能
+            laypage.render({
+                elem: 'pageProduce2CodeTable'
+                , count: 100
+                , layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+                , jump: function (obj) {
+                    //console.log(obj)
+                }
+            });
+
+            //table relationBindTable
+            table.render({
+                elem: '#relationBindTable'
+                , height: 350
+                , url: 'build/js/tabledata.json'//数据接口
+                ,size:"sm"
+                , cols: [[ //表头
+
+
+                    {field: 'phone', title: '任务名称', width: '25%'}
+                    , {field: 'username', title: '设置时间', width: '25%'}
+                    , {field: 'sex', title: '状态', width: '25%'}
+                    , {fixed: 'right', title: '操作', width: '25%', align: 'center', toolbar: '#barRelationBindTable'}
+                ]]
+            });
+
+            //监听工具条
+            table.on('tool(relationBindTable)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+                var data = obj.data //获得当前行数据
+                    , layEvent = obj.event; //获得 lay-event 对应的值
+                if (layEvent === 'detail') {
+                   window.location.href="relationBindDetail.html";
+                }
+            });
+
+
+            laypage.render({
+                elem: 'pageRelationBindTable'
+                , count: 100
+                , layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+                , jump: function (obj) {
+                    //console.log(obj)
+                }
+            });
+
+
+
+
+        });
+    </script>
+</div>
+</body>
+</html>

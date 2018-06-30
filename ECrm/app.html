@@ -1,0 +1,623 @@
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ECrm</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+
+    <link rel="stylesheet" href="./plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="./build/css/analysis.css"/>
+
+    <!-- ICONS -->
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png"/>
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png"/>
+</head>
+<body>
+<!-- WRAPPER -->
+<div id="wrapper">
+
+    <!-- MAIN -->
+    <div class="main">
+        <div class="main-content  ">
+            <!-- MAIN CONTENT -->
+
+            <div class="nav layui-row">
+                <div class="crm-loyalty-management-page">
+                    <section>
+                        <form class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-row" style="padding-top: 10px">
+                                    <div class="layui-col-md2 layui-col-md-offset3">
+                                    </div>
+                                    <div class="layui-col-md2">
+                                        <input type="text" class="layui-input" id="test5"
+                                               placeholder="yyyy-MM-dd HH:mm:ss">
+                                    </div>
+                                    <div class="layui-col-md2">
+                                        <select name="city" lay-verify="">
+                                            <option value="">请选择一个类型</option>
+                                            <option value="010">衣服</option>
+                                            <option value="021">裤子</option>
+                                            <option value="0571">首饰</option>
+                                        </select>
+                                    </div>
+                                    <div class="layui-col-md3">
+                                        <select name="city" lay-verify="">
+                                            <option value="">所有终端</option>
+                                            <option value="010">北京</option>
+                                            <option value="021">上海</option>
+                                            <option value="0571">杭州</option>
+                                        </select>
+                                    </div>
+                                    <div class="layui-col-md2">
+                                        <select name="city" lay-verify="">
+                                            <option value="">全网</option>
+                                            <option value="010">淘宝</option>
+                                            <option value="021">京东</option>
+                                            <option value="0571">唯品会</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div>
+                                <div id="FilterQuery1" class="hotel-filter-list "><strong class="tit">已选</strong>
+                                    <div class="con selected-query">
+                                        <ul class="list">
+                                            <li class="filter-query-clear"><a class="J_FilterQueryClear"
+                                                                              href="javascript:;">全部清除</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="query_gender"
+                                     class="hotel-filter-list filter-list-has-more hotel-filter-list-min"
+                                     scope="FilterQuery1"><strong class="tit"></strong>
+                                    <div class="con radio">
+                                        <label>性别：</label>
+                                        <ul class="any">
+                                            <li><a class="filter-unlimit filter-tag selected" href="javascript:;"
+                                                   data-value="">全部 100%</a></li>
+                                        </ul>
+                                        <ul class="list">
+
+
+                                        </ul>
+
+
+                                        <span class="J_FilterMore filter-more"><span class="open">更多</span><span
+                                                class="close">收起</span><i></i></span></div>
+                                </div>
+                                <div id="query_age" class="hotel-filter-list filter-list-has-more hotel-filter-list-min"
+                                     scope="FilterQuery1"><strong class="tit"></strong>
+                                    <div class="con radio">
+                                        <label>年龄</label>
+                                        <ul class="any">
+                                            <li><a class="filter-unlimit filter-tag selected" href="javascript:;"
+                                                   data-value="">全部</a></li>
+                                        </ul>
+                                        <ul class="list">
+
+
+                                        </ul>
+
+
+                                        <span class="J_FilterMore filter-more"><span class="open">更多</span><span
+                                                class="close">收起</span><i></i></span></div>
+                                </div>
+
+                                <div id="query_province"
+                                     class="hotel-filter-list filter-list-has-more hotel-filter-list-min"
+                                     scope="FilterQuery1"><strong class="tit"></strong>
+                                    <div class="con radio">
+                                        <ul class="any">
+                                            <li><a class="filter-unlimit filter-tag selected" href="javascript:;"
+                                                   data-value="">全部</a></li>
+                                        </ul>
+                                        <ul class="list">
+
+                                        </ul>
+
+
+                                        <span class="J_FilterMore filter-more"><span class="open">更多</span><span
+                                                class="close">收起</span><i></i></span></div>
+                                </div>
+
+                                <div id="query_price"
+                                     class="hotel-filter-list filter-list-has-more hotel-filter-list-min"
+                                     scope="FilterQuery1"><strong class="tit"></strong>
+                                    <div class="con radio">
+                                        <ul class="any">
+                                            <li><a class="filter-unlimit filter-tag selected" href="javascript:;"
+                                                   data-value="">全部</a></li>
+                                        </ul>
+                                        <ul class="list">
+
+                                        </ul>
+
+
+                                        <span class="J_FilterMore filter-more"><span class="open">更多</span><span
+                                                class="close">收起</span><i></i></span></div>
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </section>
+
+
+                    <section>
+                        <div class="layui-col-md6">
+                            <table class="layui-show" id="privenceTable"></table>
+                            <div class="layui-tab layui-tab-brief" lay-filter="demo">
+                                <div class="layui-tab-content">
+                                    <div class="layui-tab-item">
+                                        <div id="pagePrivenceTable"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-col-md6">
+                            <table class="layui-show" id="cityTable"></table>
+                            <div class="layui-tab layui-tab-brief" lay-filter="demo">
+                                <div class="layui-tab-content">
+                                    <div class="layui-tab-item">
+                                        <div id="pageCityTable"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <label>买家行为</label>
+                        </div>
+                        <div id="behavior" width="1000px" height="250"
+                             style="width: auto; height: 250px;"></div>
+                    </section>
+
+                    <section>
+                        <div class="row">
+                            <label>买家类目购买偏好</label>
+                            <div>
+                                <div class="col-md-6">
+
+
+                                    <table class="layui-show" id="favouriteTable">
+
+                                    </table>
+                                    <div class="layui-tab layui-tab-brief" lay-filter="demo">
+                                        <div class="layui-tab-content">
+                                            <div class="layui-tab-item">
+                                                <div id="pageFavouriteTable"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="col-md-4">
+                                        <div class="favcell-pan">
+                                            <div class="entry-cell">
+                                                <!--<img class="icon-img"-->
+                                                <!--src="//img.alicdn.com/tfs/TB1zFkQXgMPMeJjy1XbXXcwxVXa-36-40.png"/>-->
+                                                <div class="entry-title">
+                                                    <h3>价格</h3>
+                                                </div>
+                                                <div class="entry-info" style="color: rgb(153, 153, 153);">
+                                                    围巾围巾围巾。
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="favcell-pan">
+                                            <div class="entry-cell">
+                                                <!--<img class="icon-img"-->
+                                                <!--src="//img.alicdn.com/tfs/TB1zFkQXgMPMeJjy1XbXXcwxVXa-36-40.png"/>-->
+                                                <div class="entry-title">
+                                                    <h3>价格</h3>
+                                                </div>
+                                                <div class="entry-info" style="color: rgb(153, 153, 153);">
+                                                    围巾围巾围巾。
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="favcell-pan">
+                                            <div class="entry-cell">
+                                                <!--<img class="icon-img"-->
+                                                <!--src="//img.alicdn.com/tfs/TB1zFkQXgMPMeJjy1XbXXcwxVXa-36-40.png"/>-->
+                                                <div class="entry-title">
+                                                    <h3>价格</h3>
+                                                </div>
+                                                <div class="entry-info" style="color: rgb(153, 153, 153);">
+                                                    围巾围巾围巾。
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="favcell-pan">
+                                            <div class="entry-cell">
+                                                <!--<img class="icon-img"-->
+                                                <!--src="//img.alicdn.com/tfs/TB1zFkQXgMPMeJjy1XbXXcwxVXa-36-40.png"/>-->
+                                                <div class="entry-title">
+                                                    <h3>价格</h3>
+                                                </div>
+                                                <div class="entry-info" style="color: rgb(153, 153, 153);">
+                                                    围巾围巾围巾。
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="favcell-pan">
+                                            <div class="entry-cell">
+                                                <!--<img class="icon-img"-->
+                                                <!--src="//img.alicdn.com/tfs/TB1zFkQXgMPMeJjy1XbXXcwxVXa-36-40.png"/>-->
+                                                <div class="entry-title">
+                                                    <h3>价格</h3>
+                                                </div>
+                                                <div class="entry-info" style="color: rgb(153, 153, 153);">
+                                                    围巾围巾围巾。
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="favcell-pan">
+                                            <div class="entry-cell">
+                                                <!--<img class="icon-img"-->
+                                                <!--src="//img.alicdn.com/tfs/TB1zFkQXgMPMeJjy1XbXXcwxVXa-36-40.png"/>-->
+                                                <div class="entry-title">
+                                                    <h3>价格</h3>
+                                                </div>
+                                                <div class="entry-info" style="color: rgb(153, 153, 153);">
+                                                    围巾围巾围巾。
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="favcell-pan">
+                                            <div class="entry-cell">
+                                                <!--<img class="icon-img"-->
+                                                <!--src="//img.alicdn.com/tfs/TB1zFkQXgMPMeJjy1XbXXcwxVXa-36-40.png"/>-->
+                                                <div class="entry-title">
+                                                    <h3>价格</h3>
+                                                </div>
+                                                <div class="entry-info" style="color: rgb(153, 153, 153);">
+                                                    围巾围巾围巾。
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="favcell-pan">
+                                            <div class="entry-cell">
+                                                <!--<img class="icon-img"-->
+                                                <!--src="//img.alicdn.com/tfs/TB1zFkQXgMPMeJjy1XbXXcwxVXa-36-40.png"/>-->
+                                                <div class="entry-title">
+                                                    <h3>价格</h3>
+                                                </div>
+                                                <div class="entry-info" style="color: rgb(153, 153, 153);">
+                                                    围巾围巾围巾。
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- END MAIN CONTENT -->
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+            <!-- END MAIN -->
+            <!-- END WRAPPER -->
+            <!-- Javascript -->
+            <script src="./plugins/jquery/jquery.min.js"></script>
+            <script src="./plugins//bootstrap/js/bootstrap.min.js"></script>
+
+            <script src="./plugins/layui/layui.all.js"></script>
+            <script src="./build/js/anylysis.js"></script>
+
+            <script src="./plugins/echarts.min.js"></script>
+            <script src="./plugins/macarons.js"></script>
+            <script>
+
+
+                layui.use(['table', 'laydate', 'laypage'], function () {
+                    var laypage = layui.laypage //分页
+                        , table = layui.table //表格
+                        , laydate = layui.laydate; //元素操作
+
+
+                    //执行一个 table 实例
+                    table.render({
+                        elem: '#privenceTable'
+                        , height: 295,
+                        style: 'font-size:12px'
+                        , url: 'build/js/tabledata.json'//数据接口
+                        , page: true //开启分页
+                        , cols: [[ //表头
+
+
+                            {field: 'index', title: '排名', width: '20%'}
+                            , {field: 'privence', title: '省份', width: '20%'}
+                            , {field: 'percent', title: '支付买家数占比', width: '40%'}
+                            , {field: 'price', title: '客单价', width: '20%'}
+                        ]]
+                    });
+
+                    //分页
+                    laypage.render({
+                        elem: '#pagePrivenceTable' //分页容器的id
+                        , count: 100 //总页数
+                        , skin: '#1E9FFF' //自定义选中色值
+                        //,skip: true //开启跳页
+                        , jump: function (obj, first) {
+                            if (!first) {
+                                layer.msg('第' + obj.curr + '页');
+                            }
+                        }
+                    });
+
+
+                    //执行一个 table 实例
+                    table.render({
+                        elem: '#cityTable'
+                        , height: 295
+                        , url: 'build/js/tabledata.json'//数据接口
+                        , page: true //开启分页
+                        , cols: [[ //表头
+
+
+                            {field: 'index', title: '排名', width: '20%'}
+                            , {field: 'city', title: '城市', width: '20%'}
+                            , {field: 'percent', title: '支付买家数占比', width: '40%'}
+                            , {field: 'price', title: '客单价', width: '20%'}
+                        ]]
+                    });
+
+                    //分页
+                    laypage.render({
+                        elem: '#cityPrivenceTable' //分页容器的id
+                        , count: 100 //总页数
+                        , skin: '#1E9FFF' //自定义选中色值
+                        //,skip: true //开启跳页
+                        , jump: function (obj, first) {
+                            if (!first) {
+                                layer.msg('第' + obj.curr + '页');
+                            }
+                        }
+                    });
+
+                    //执行一个 table 实例
+                    table.render({
+                        elem: '#favouriteTable'
+                        , height: 295
+                        , url: 'build/js/tabledata.json'//数据接口
+                        , page: true //开启分页
+                        , cols: [[ //表头
+
+
+                            {field: 'index', title: '排名', width: '20%'}
+                            , {field: 'city', title: '关联购买类目', width: '50%'}
+                            , {field: 'percent', title: '关联交易指数', width: '30%'}
+                        ]]
+                    });
+
+                    //分页
+                    laypage.render({
+                        elem: '#cityFavouriteTable' //分页容器的id
+                        , count: 100 //总页数
+                        , skin: '#1E9FFF' //自定义选中色值
+                        //,skip: true //开启跳页
+                        , jump: function (obj, first) {
+                            if (!first) {
+                                layer.msg('第' + obj.curr + '页');
+                            }
+                        }
+                    });
+
+
+                    laydate.render({
+                        elem: '#test5'
+                        , type: 'datetime'
+                    });
+
+
+                });
+            </script>
+
+            <script type="text/javascript">
+                var data_gender = [
+
+                    {
+                        "id": "femail",
+                        "text": "女 83.69%"
+                    },
+                    {
+                        "id": "mail",
+                        "text": "男 12.18%"
+                    },
+                    {
+                        "id": "other",
+                        "text": "蒙面侠 3.13%"
+                    }
+                ]
+
+                var data_age = [
+                    {
+                        "id": "age_18-25",
+                        "text": "18-25岁 22.45%"
+                    },
+                    {
+                        "id": "age_26-30",
+                        "text": "26-30岁 22.15%"
+
+                    },
+                    {
+                        "id": "age_31-35",
+                        "text": "31-35岁 17.84%"
+                    },
+                    {
+                        "id": "age_36-40",
+                        "text": "36-40岁 12.34%"
+                    },
+                    {
+                        "id": "age_40-50",
+                        "text": "41-50岁 16.0 %"
+                    },
+                    {
+                        "id": "age_50-up",
+                        "text": "51岁以上 7.63%"
+                    }
+
+
+                ]
+
+                var data_province = [
+                    {
+                        "id": "guangdong",
+                        "text": "广东省 10.48%"
+                    },
+
+
+                    {
+                        "id": "jiangshu",
+                        "text": "江苏省8.50 %"
+                    },
+                    {
+                        "id": "zhejiang",
+                        "text": "浙江省 8.47%"
+                    },
+                    {
+                        "id": "shandong",
+                        "text": "山东省 6.21%"
+                    },
+                    {
+                        "id": "beijing",
+                        "text": "北京市 5.21%"
+                    }]
+
+                var data_pricce = [
+                    {
+                        "id": "0-30",
+                        "text": "0-30元 10.48%"
+                    },
+
+
+                    {
+                        "id": "30-70",
+                        "text": "30-70元 8.50 %"
+                    },
+                    {
+                        "id": "70-170",
+                        "text": "70-170元 8.47%"
+                    },
+                    {
+                        "id": "170-435",
+                        "text": "170-435元 6.21%"
+                    },
+                    {
+                        "id": "435-1525",
+                        "text": "435-1525元 5.21%"
+                    },
+                    {
+                        "id": "more_1525",
+                        "text": "1525元以上 0.24%"
+                    }]
+
+
+                //例子1
+                //单选
+                $('#query_gender').comboboxfilter({
+                    url: '',
+                    scope: 'FilterQuery1',
+                    data: data_gender,
+                    onChange: function (newValue) {
+                        $('#demo_value').val(newValue);
+                    }
+                });
+                $('#query_age').comboboxfilter({
+                    url: '',
+                    scope: 'FilterQuery1',
+                    data: data_age,
+                    onChange: function (newValue) {
+                        $('#demo_value').val(newValue);
+                    }
+                });
+
+                $('#query_province').comboboxfilter({
+                    url: '',
+                    scope: 'FilterQuery1',
+                    data: data_province,
+                    onChange: function (newValue) {
+                        $('#demo_value').val(newValue);
+                    }
+                });
+
+                $('#query_price').comboboxfilter({
+                    url: '',
+                    scope: 'FilterQuery1',
+                    data: data_pricce,
+                    onChange: function (newValue) {
+                        $('#demo_value').val(newValue);
+                    }
+                });
+
+
+                var dom = document.getElementById("behavior");
+                var myChart = echarts.init(dom, 'macarons');
+
+
+                var app = {};
+                option = null;
+
+                option = {
+                    xAxis: {
+                        type: 'category',
+                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        data: [820, 932, 901, 934, 1290, 1330, 1320],
+                        type: 'line',
+                        smooth: true
+                    }]
+                };
+
+
+                if (option && typeof option === "object") {
+                    myChart.setOption(option, true);
+
+                }
+
+
+            </script>
+
+        </div>
+</body>
+</html>

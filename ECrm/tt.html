@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>demo</title>
+<script src="./plugins/jquery/jquery.min.js"></script>
+</head>
+<body>
+
+<ul class="list-side">
+    　　
+    <li><a target="qrcode.html">about</a></li>
+    　　
+    <li><a target="task.html">news</a></li>
+    　　
+    <li><a target="loyalty.html">product</a></li>
+    　　
+    <li><a href="http://baidu.com/" target="_blank">contact</a></li>
+</ul>
+<div id="iframe">
+    　　<!--jquery 插入html 位址-->
+</div>
+<script>
+
+    $("#iframe").load("./qrcode.html");
+    $('.list-side li').click(function () {
+        _clickLink = $(this).find('a').attr('target'); // 找到链接a中的targer的值
+        $("#iframe").load(_clickLink);
+    });
+
+
+</script>
+
+
+</body>
+</html>

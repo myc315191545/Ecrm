@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ECrm</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+
+
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="assets/vendor/linearicons/style.css"/>
+    <link rel="stylesheet" href="assets/vendor/chartist/css/chartist-custom.css"/>
+    <link rel="stylesheet" href="assets/vendor/bootstrap-table/bootstrap-table.css"/>
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/main.css"/>
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <link rel="stylesheet" href="css/demo.css"/>
+    <!-- GOOGLE FONTS -->
+    <link href="css/font.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/entry.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/marketing.css"/>
+    <link rel="stylesheet" href="plugins/layui/css/layui.css" media="all">
+
+
+</head>
+<body>
+<!-- MAIN -->
+<div class="main">
+    <div class="main-content  ">
+        <div class="nav row">
+            <section id="devote" style="padding-top: 10px">
+                <div class="figure-table">
+                    <div class="figure-table-head">
+                        <div class="figure-table-title">
+                            我的指标
+                        </div>
+                        <div class="figure-table-options">
+                            统计周期
+                        </div>
+                    </div>
+                    <div class="figure-table-body">
+                        <div class="figure-table-item">
+                            <div class="figure-table-item-title">
+                                总会员数目标
+                                <i class="next-icon next-icon-help next-icon-xs"></i>
+                            </div>
+                            <div class="figure-table-item-value">
+                                <b><span> <b>200</b>&nbsp;<span class="figure-unit">人</span></span> </b>
+                            </div>
+
+                        </div>
+                        <div class="figure-table-item">
+                            <div class="figure-table-item-title">
+                                已成功开卡数
+                                <i class="next-icon next-icon-help next-icon-xs"></i>
+                            </div>
+                            <div class="figure-table-item-value">
+                                <b><b>55</b></b>人
+                            </div>
+
+                        </div>
+                        <div class="figure-table-item">
+                            <div class="figure-table-item-title">
+                                剩余指标数
+                                <i class="next-icon next-icon-help next-icon-xs"></i>
+                            </div>
+                            <div class="figure-table-item-value">
+                                <b><span><b>145</b>人 &nbsp; <span class="figure-unit">人</span></span> </b>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </section>
+            <!-- MAIN CONTENT -->
+            <div class="intelligent-marketing-page">
+                <section class="intelligent-marketing-page">
+                    <div class="blue-crm-title">
+                        <span class="crm-title">会员分析|二维码生成策略：</span><span>title</span>
+                        <span class="crm-subtitle"></span>
+                        <button class="layui-btn layui-btn-sm">
+                            <i class="layui-icon">&#xe65c;</i>
+                        </button>
+                    </div>
+                </section>
+                <section>
+                    <section id="devote" style="padding-top: 10px">
+                        <div class="figure-table">
+                            <div class="figure-table-body">
+                                <div class="figure-table-item">
+                                    <div class="figure-table-item-title">
+                                        导购数据
+                                        <i class="next-icon next-icon-help next-icon-xs"></i>
+                                    </div>
+                                    <div class="figure-table-item-value">
+                                        <b><span> <b>200</b>&nbsp;<span class="figure-unit"></span></span> </b>
+                                    </div>
+
+                                </div>
+                                <div class="figure-table-item">
+                                    <div class="figure-table-item-title">
+                                        新增人数
+                                        <i class="next-icon next-icon-help next-icon-xs"></i>
+                                    </div>
+                                    <div class="figure-table-item-value">
+                                        <b><b>55</b></b>人
+                                    </div>
+
+                                </div>
+                                <div class="figure-table-item">
+                                    <div class="figure-table-item-title">
+                                        成功分配二维码人数
+                                        <i class="next-icon next-icon-help next-icon-xs"></i>
+                                    </div>
+                                    <div class="figure-table-item-value">
+                                        <b><span><b>145</b>人 &nbsp; <span class="figure-unit">人</span></span> </b>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </section>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN -->
+    <!-- Javascript -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+    <script src="assets/vendor/chartist/js/chartist.min.js"></script>
+    <script src="assets/scripts/klorofil-common.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap-paginator.js"></script>
+    <script src="assets/vendor/bootstrap-table/bootstrap-table.js"></script>
+    <script src="assets/vendor/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+
+    <script src="./plugins/layui/layui.all.js"></script>
+
+
+    <script>
+
+
+        layui.use(['table', 'laypage', 'element'], function () {
+            var laypage = layui.laypage //分页
+                , layer = layui.layer //弹层
+                , table = layui.table //表格
+                , element = layui.element; //元素操作
+
+
+            //一些事件监听
+            // element.on('tab(tabFilter)', function(data){
+            //
+            // });
+
+
+            //table produce2Code
+            table.render({
+                elem: '#produce2Code'
+                , height: 295
+                , url: 'build/js/tabledata.json'//数据接口
+                , cols: [[ //表头
+
+
+                    {field: 'phone', title: '策略名称', width: '25%'}
+                    , {field: 'username', title: '设置时间', width: '25%'}
+                    , {field: 'sex', title: '状态', width: '25%'}
+                    , {fixed: 'right', title: '操作', width: '25%', align: 'center', toolbar: '#barProduce2Code'}
+                ]]
+            });
+
+            //监听工具条
+            table.on('tool(produce2Code)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+                var data = obj.data //获得当前行数据
+                    , layEvent = obj.event; //获得 lay-event 对应的值
+                if (layEvent === 'detail') {
+                    layer.msg('查看操作');
+                }
+            });
+
+
+            //完整功能
+            laypage.render({
+                elem: 'pageProduce2Code'
+                , count: 100
+                , layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+                , jump: function (obj) {
+                    //console.log(obj)
+                }
+            });
+
+            //table relationBindTable
+            table.render({
+                elem: '#relationBindTable'
+                , height: 295
+                , url: 'build/js/tabledata.json'//数据接口
+                , page:
+                    { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                        layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+                        //,curr: 5 //设定初始在第 5 页
+                        , groups: 1 //只显示 1 个连续页码
+                        , first: false //不显示首页
+                        , last: false //不显示尾页
+
+                    }
+                , cols: [[ //表头
+
+
+                    {field: 'phone', title: '策略名称', width: '25%'}
+                    , {field: 'username', title: '设置时间', width: '25%'}
+                    , {field: 'sex', title: '状态', width: '25%'}
+                    , {fixed: 'right', title: '操作', width: '25%', align: 'center', toolbar: '#barProduce2Code'}
+                ]]
+            });
+
+            //监听工具条
+            table.on('tool(produce2Code)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+                var data = obj.data //获得当前行数据
+                    , layEvent = obj.event; //获得 lay-event 对应的值
+                if (layEvent === 'detail') {
+                    layer.msg('查看操作');
+                }
+            });
+
+
+            laypage.render({
+                elem: 'pageRelationBindTable'
+                , count: 100
+                , layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+                , jump: function (obj) {
+                    //console.log(obj)
+                }
+            });
+
+            //table groupSetTable
+            table.render({
+                elem: '#groupSetTable'
+                , height: 295
+                , url: 'build/js/tabledata.json'//数据接口
+
+                , cols: [[ //表头
+
+
+                    {field: 'phone', title: '策略名称', width: '25%'}
+                    , {field: 'username', title: '设置时间', width: '25%'}
+                    , {field: 'sex', title: '状态', width: '25%'}
+                    , {fixed: 'right', title: '操作', width: '25%', align: 'center', toolbar: '#barGroupSetTable'}
+                ]]
+            });
+
+            //监听工具条
+            table.on('tool(groupSetTable)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+                var data = obj.data //获得当前行数据
+                    , layEvent = obj.event; //获得 lay-event 对应的值
+                if (layEvent === 'detail') {
+                    layer.msg('查看操作');
+                }
+            });
+
+            laypage.render({
+                elem: 'pageGroupSetTable'
+                , count: 100
+                , layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+                , jump: function (obj) {
+                    //console.log(obj)
+                }
+            });
+
+            //table vip2table
+            table.render({
+                elem: '#vip2Table'
+                , height: 295
+                , url: 'build/js/tabledata.json'//数据接口
+
+                , cols: [[ //表头
+
+
+                    {field: 'phone', title: '策略名称', width: '25%'}
+                    , {field: 'username', title: '设置时间', width: '25%'}
+                    , {field: 'sex', title: '状态', width: '25%'}
+                    , {fixed: 'right', title: '操作', width: '25%', align: 'center', toolbar: '#barVip2Table'}
+                ]]
+            });
+
+            //监听工具条
+            table.on('tool(vip2Table)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+                var data = obj.data //获得当前行数据
+                    , layEvent = obj.event; //获得 lay-event 对应的值
+                if (layEvent === 'detail') {
+                    layer.msg('查看操作');
+                }
+            });
+
+            laypage.render({
+                elem: 'pageVip2Table'
+                , count: 100
+                , layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+                , jump: function (obj) {
+                    //console.log(obj)
+                }
+            });
+
+            //table vip1table
+            table.render({
+                elem: '#vip1Table'
+                , height: 295
+                , url: 'build/js/tabledata.json'//数据接口
+
+                , cols: [[ //表头
+
+
+                    {field: 'phone', title: '策略名称', width: '25%'}
+                    , {field: 'username', title: '设置时间', width: '25%'}
+                    , {field: 'sex', title: '状态', width: '25%'}
+                    , {fixed: 'right', title: '操作', width: '25%', align: 'center', toolbar: '#barVip1Table'}
+                ]]
+            });
+
+            //监听工具条
+            table.on('tool(vip1Table)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+                var data = obj.data //获得当前行数据
+                    , layEvent = obj.event; //获得 lay-event 对应的值
+                if (layEvent === 'detail') {
+                    layer.msg('查看操作');
+                }
+            });
+
+            laypage.render({
+                elem: 'pageVip1Table'
+                , count: 100
+                , layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+                , jump: function (obj) {
+                    //console.log(obj)
+                }
+            });
+
+            //table vipTable
+            table.render({
+                elem: '#vipTable'
+                , height: 295
+                , url: 'build/js/tabledata.json'//数据接口
+
+                , cols: [[ //表头
+
+
+                    {field: 'phone', title: '策略名称', width: '25%'}
+                    , {field: 'username', title: '设置时间', width: '25%'}
+                    , {field: 'sex', title: '状态', width: '25%'}
+                    , {fixed: 'right', title: '操作', width: '25%', align: 'center', toolbar: '#barVipTable'}
+                ]]
+            });
+
+            //监听工具条
+            table.on('tool(vipTable)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+                var data = obj.data //获得当前行数据
+                    , layEvent = obj.event; //获得 lay-event 对应的值
+                if (layEvent === 'detail') {
+                    layer.msg('查看操作');
+                }
+            });
+
+            laypage.render({
+                elem: 'pageVipTable'
+                , count: 100
+                , layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+                , jump: function (obj) {
+                    //console.log(obj)
+                }
+            });
+
+        });
+    </script>
+</div>
+</body>
+</html>

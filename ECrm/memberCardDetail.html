@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ECrm</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="assets/vendor/linearicons/style.css"/>
+    <link rel="stylesheet" href="assets/vendor/bootstrap-table/bootstrap-table.css"/>
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/main.css"/>
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <link rel="stylesheet" href="css/demo.css"/>
+    <!-- GOOGLE FONTS -->
+    <link href="css/font.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/entry.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/index.bundle.css"/>
+
+    <link rel="stylesheet" href="css/marketing.css"/>
+    <link rel="stylesheet" href="plugins/layui/css/layui.css" media="all">
+
+
+    <!-- ICONS -->
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png"/>
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png"/>
+
+</head>
+<body>
+<!-- WRAPPER -->
+
+<!-- MAIN -->
+<div class="main">
+    <div class="main-content  ">
+
+
+        <div class="crm-loyalty-management-page">
+            <section id="devote">
+                <div class="figure-table">
+                    <div class="figure-table-head">
+                        <div class="figure-table-title">
+                            核心指标
+                        </div>
+                        <div class="figure-table-options">
+                            统计周期
+                        </div>
+                    </div>
+                    <div class="figure-table-body">
+                        <div class="figure-table-item">
+                            <div class="figure-table-item-title">
+                                昨日会员成交金额
+                            </div>
+                            <div class="figure-table-item-value">
+                                <b><span> <b ><span id="yesterdayVolume"> </span></b>&nbsp;<span class="figure-unit">元</span></span> </b>
+                            </div>
+                            <div class="figure-table-item-subtitle">
+                                较前日&nbsp;&nbsp;
+                                <span class="figure-table-item-subvalue down" id="beforeYesterday">
+                                   </span>
+                            </div>
+                        </div>
+                        <div class="figure-table-item">
+                            <div class="figure-table-item-title">
+                                昨日会员成交金额占比
+                            </div>
+                            <div class="figure-table-item-value">
+                                <b><b><span id="yesterdayPercent"></span></b></b>
+                            </div>
+                            <div class="figure-table-item-subtitle">
+                                同行数据&nbsp;&nbsp;
+                                <span class="figure-table-item-subvalue" id="peersAmount"></span>
+                            </div>
+                        </div>
+                        <div class="figure-table-item">
+                            <div class="figure-table-item-title">
+                                昨日会员成交人数
+                            </div>
+                            <div class="figure-table-item-value">
+                                <b><span><b><span id="yesterdayDealNum"></span></b> &nbsp; <span class="figure-unit">人</span></span> </b>
+                            </div>
+                            <div class="figure-table-item-subtitle">
+                                较前日&nbsp;&nbsp;
+                                <span class="figure-table-item-subvalue down" id="dealNumBeforeYesterday"></span>
+                            </div>
+                        </div>
+                        <div class="figure-table-item">
+                            <div class="figure-table-item-title">
+                                昨日会员成交人数占比
+                            </div>
+                            <div class="figure-table-item-value">
+                                <b><b><span id="yestDealPercent"></span></b></b>
+                            </div>
+                            <div class="figure-table-item-subtitle">
+                                同行数据&nbsp;&nbsp;
+                                <span class="figure-table-item-subvalue " id="peersNum"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line-chart padding_top">
+                    <div class="chart-title">
+                        会员成交趋势
+                    </div>
+                    <div style="position: relative;">
+
+                        <div id="canvas" height="250"
+                             style="width: auto; height: 250px;"></div>
+
+                    </div>
+                </div>
+                <div class="line-chart repurchase-chart">
+                    <div class="chart-title">
+                        <div class="repurchase-title">
+                            <div>
+                                <!-- react-text: 112 -->复购率
+                                <!-- /react-text -->
+                            </div>
+                            <div class="repurchase-cycle-container">
+                                <div class="title">
+                                    复购周期
+                                </div>
+                                <div class="next-radio-group next-radio-button next-radio-button-medium repurchase-cycle-radio">
+                                    <label class="next-radio-wrapper "><span
+                                            class="next-radio-single-input"><input
+                                            type="radio" value="30" aria-checked="false"/></span><span
+                                            class="next-radio-label">30天</span></label>
+                                    <label class="next-radio-wrapper "><span
+                                            class="next-radio-single-input"><input
+                                            type="radio" value="90" aria-checked="false"/></span><span
+                                            class="next-radio-label">90天</span></label>
+                                    <label class="next-radio-wrapper checked "><span
+                                            class="next-radio-single-input"><input type="radio" value="180"
+                                                                                   aria-checked="true"/></span><span
+                                            class="next-radio-label">180天</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <div style="position: relative;">
+                                <div id="canvas_1" height="250"
+                                     style="width: auto; height: 250px;"></div>
+                                <div id="canvas_2" height="250"
+                                     style="width: auto; height: 250px; position: absolute; top: 0px; left: 0px;"></div>
+                                <div id="canvas_3" height="250"
+                                     style="width: auto; height: 250px; position: absolute; top: 0px; left: 0px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="line-legend">
+                        <div class="legend-item">
+                            <div class="legend-item-shape" data-value="mbrRepayRat" data-israte="1" data-i="0"
+                                 style="background: rgb(48, 137, 220);"
+                                 data-spm-anchor-id="a1za3.11236630.0.i14.5aca6594KwQ7JS"></div>
+                            <!-- react-text: 134 -->会员复购率
+                            <!-- /react-text -->
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-item-shape" data-value="unMbrRepayRat" data-israte="1" data-i="1"
+                                 style="background: rgb(65, 194, 161);"></div>
+                            <!-- react-text: 137 -->非会员复购率
+                            <!-- /react-text -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- END MAIN CONTENT -->
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- END MAIN -->
+<!-- END WRAPPER -->
+<!-- Javascript -->
+
+<script src="./plugins/jquery/jquery.min.js"></script>
+
+<script src="./plugins/echarts/echarts.min.js"></script>
+<script src="./plugins/echarts//macarons.js"></script>
+
+
+<script src="./plugins/layui/layui.all.js"></script>
+
+<script type="text/javascript">
+    var dom = document.getElementById("canvas");
+    var myChart = echarts.init(dom, 'macarons');
+
+    var dom2 = document.getElementById("canvas_1");
+    var myChart2 = echarts.init(dom2, 'macarons');
+
+    var app = {};
+    option = null;
+    option = {
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        dataZoom: [
+            {
+                type: 'slider',
+                xAxisIndex: 0,
+                filterMode: 'empty'
+
+            }
+        ],
+        series: [{
+            data: [820, 932, 901, 934, 1290, 1330, 1320],
+            type: 'line',
+            smooth: true,
+            areaStyle: {
+                normal: {
+
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(40, 182, 252, 0.12)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(28, 159, 255, 0.2)'
+                    }])
+                }
+            }
+        }]
+    };
+    ;
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+
+        myChart2.setOption(option, true);
+    }
+
+    $(function() {
+
+        $('#yesterdayVolume').html("2323");//  昨日会员成交金额
+        $('#beforeYesterday').html("2323");//        较前日
+        $('#yesterdayPercent').html("2323");//     昨日会员成交金额占比
+        $('#peersAmount').html("2323");//     同行数据
+        $('#yesterdayDealNum').html("2323");//     昨日会员成交人数
+        $('#dealNumBeforeYesterday').html("2323");//         较日前
+        $('#yestDealPercent').html("2323");//     昨日会员成交人数占比
+        $('#peersNum').html("2323");// 同行数据
+
+    });
+</script>
+</body>
+</html>

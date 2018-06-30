@@ -1,0 +1,66 @@
+<!doctype html>
+<html langj="zh">
+<head>
+    <meta charset="utf-8">
+    <title>CSS菜单</title>
+    <style type="text/css">
+        .btn_links {
+            padding: 0 0 0 20%;
+            background: #F6F9FE;
+            box-shadow: inset 0 1px 2px #E8EAEF;
+            height: 0;
+            overflow: hidden;
+        }
+        .btn_links_open {
+            overflow: visible;
+            padding: 5px 0 5px 20%;
+            height: auto;
+        }
+    </style>
+
+    <script>
+        function knext(a) {//这就是那个knext方法 在原js文件的最下面声明的
+            for (a = a.nextSibling; 1 != a.nodeType; )
+                a = a.nextSibling;
+            return a
+        }
+
+        a = document.getElementsByClassName("aft");
+        for (b = 0; b < a.length; b++){
+            a[b].addEventListener("mousedown", function() {
+                var a = this.className, b = knext(this.parentNode.parentNode), c = b.className;
+                -1 == a.indexOf("open") ? (this.className = a + " open", b.className = c + " btn_links_open") : (this.className = a.replace(" open", ""), b.className = c.replace(" btn_links_open", ""))
+            })
+        }
+    </script>
+</head>
+
+<body>
+
+
+<ul class="btn_list clearfix">
+    <li><a href="javascript:;" class="aft">视频</a></li>
+    <li><a href="http://m.tv.sohu.com/" stat="82452">搜狐</a></li>
+    <li><a href="http://www.iqiyi.com/" stat="82453">奇艺</a></li>
+    <li><a href="http://www.youku.com/ " stat="90969">优酷</a></li>
+    <li><a href="http://m.letv.com/" stat="82461">乐视</a></li>
+</ul>
+<ul class="btn_links clearfix">
+    <li><a href="http://m.tudou.com/wap/index" stat="82457">土豆</a></li>
+    <li><a href="http://m.funshion.com/index" stat="82456">风行</a></li>
+    <li><a href="http://m.baidu.com/video" stat="82455">百度</a></li>
+    <li><a href="http://www.vovokan.com/" stat="88998">窝窝看</a></li>
+    <li><a href="http://www.y80s.com/" stat="82459">80s</a></li>
+    <li><a href="http://m.pps.tv/" stat="82454">PPS</a></li>
+    <li><a href="http://www.qire123.com/" stat="82458">奇热</a></li>
+    <li><a href="http://m.56.com" stat="86678">56视频</a></li>
+    <li><a href="http://v1.roboo.com/proxy/video/search_xcb.jsp" stat="86679">儒豹</a></li>
+    <li><a href="http://m.ku6.com/" stat="86680">酷6</a></li>
+    <li><a href="http://m.joy.cn/" stat="86681">激动</a></li>
+    <li><a href="http://www.tzr1.com/" stat="87674">兔六</a></li>
+    <li><a href="http://y.qq.com/" stat="88999">qq音乐</a></li>
+    <li><a href="http://m1905.cn/" stat="82460">1905</a></li>
+    <li><a href="http://m.duba.com/sp.html" stat="82462">更多</a></li>
+</ul>
+</body>
+</html>
